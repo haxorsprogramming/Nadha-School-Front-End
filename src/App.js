@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Button from '@material-ui/core/Button';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {name: 'Ninja Ken'};
+  }
+  
+  handleClick(name){
+    this.setState({name:name})
+  }
+  
+  render() {
+    return (
+    	<div>
+    	  <h1>Hello, {this.state.name}!</h1>
+        <Button variant="contained" color="primary" onClick={ () => {this.handleClick('Aditia Darma Nst')} }>
+          Ganti ke adit
+        </Button>
+        <BottomNavigation>
+        <BottomNavigationAction label="Recents" icon={<AccessAlarmIcon />} onClick={ () => {this.handleClick('Aditia Darma Nst')} }/>
+        </BottomNavigation>
+      </div>
+      
+    );
+  }
 }
 
 export default App;
